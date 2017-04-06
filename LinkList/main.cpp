@@ -22,7 +22,7 @@ int main(int argc, const char * argv[]) {
     studentList->addStudent(new StudentData("idrees","9"), 0);
     studentList->addStudent(new StudentData("idrees","5"), 3);
     
-    studentList->printAllStudents();
+    //studentList->printAllStudents();
     
     studentList->removeAll();
     

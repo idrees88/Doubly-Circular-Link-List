@@ -17,6 +17,7 @@ class StudentData {
     string studentName;
     string studentRollNo;
     StudentData *next;
+    StudentData *backPointer;
     
 public:
     StudentData();
@@ -25,10 +26,12 @@ public:
     void setStudentName(string studentName);
     void setStudentRollNo(string studentRollNo);
     void setNext(StudentData *nextNode);
+    void setBack(StudentData *backNode);
     
     string getStudentName();
     string getStrudentTollNo();
     StudentData* getNext();
+    StudentData* getBack();
 };
 
 #endif /* StudentData_hpp */

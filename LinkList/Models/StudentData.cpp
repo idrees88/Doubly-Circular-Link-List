@@ -12,14 +12,14 @@ StudentData::StudentData() {
     this->studentName  = "header";
     this->studentRollNo = "header";
     this->next = nullptr;
-    
-    
+    this->backPointer = nullptr;
 }
 
 StudentData::StudentData(string name, string rollNo) {
     this->studentName = name;
     this->studentRollNo = rollNo;
     this->next = nullptr;
+    this->backPointer = nullptr;
 }
 
 
@@ -33,6 +33,9 @@ void StudentData::setStudentRollNo(string studentRollNo){
 void StudentData::setNext(StudentData *nextNode) {
     this->next = nextNode;
 }
+void StudentData::setBack(StudentData *backNode) {
+    this->backPointer = backNode;
+}
 
 string StudentData::getStudentName() {
     return this->studentName;
@@ -42,6 +45,9 @@ string StudentData::getStrudentTollNo() {
 }
 StudentData* StudentData::getNext() {
     return this->next;
+}
+StudentData* StudentData::getBack() {
+    return this->backPointer;
 }
 
 
