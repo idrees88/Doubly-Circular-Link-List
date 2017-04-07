@@ -17,14 +17,14 @@ int main(int argc, const char * argv[]) {
     
     
     studentList->addStudent(new StudentData("idrees","1"));
-    studentList->addStudent(new StudentData("idrees","2"));
-    studentList->addStudent(new StudentData("idrees","3"), 0);
-    studentList->addStudent(new StudentData("idrees","9"), 0);
-    studentList->addStudent(new StudentData("idrees","5"), 3);
+    //studentList->addStudent(new StudentData("idrees","2"));
+    //studentList->addStudent(new StudentData("idrees","3"), 0);
+//    studentList->addStudent(new StudentData("idrees","9"), 0);
+//    studentList->addStudent(new StudentData("idrees","5"), 3);
     
     //studentList->printAllStudents();
     
-    studentList->removeAll();
+    studentList->removeStudentAtPosition(0);
     
     studentList->printAllStudents();
     

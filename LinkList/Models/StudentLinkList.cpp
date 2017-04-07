@@ -50,13 +50,16 @@ void StudentLinkList::addStudent(StudentData *studentData, int position) {
             if (position == 0 && traversePointer == nullptr) {
                 studentData->setNext(studentData);
                 studentData->setBack(studentData);
-                this->head = studentData;
             }
             else {
                 studentData->setBack(traversePointer->getBack());
                 studentData->setNext(traversePointer);
                 traversePointer->getBack()->setNext(studentData);
                 traversePointer->setBack(studentData);
+            }
+            
+            if (position == 0) {
+                this->head = studentData;
             }
             
             this->size++;
@@ -148,7 +151,7 @@ void StudentLinkList::removeLastStudent() {
 }
 
 void StudentLinkList::removeAll() {
-    StudentData *traversePointer = this->head->getNext();
+    StudentData *traversePointer = this->head;
     
     do {
         delete traversePointer;
@@ -156,7 +159,6 @@ void StudentLinkList::removeAll() {
         this->size--;
     } while (traversePointer != this->head);
     
-    delete traversePointer;
     traversePointer = nullptr;
     this->head = nullptr;
 }
@@ -168,7 +170,7 @@ void StudentLinkList::printAllStudents() {
             cout<<"Student Name: "<<traversePointer->getStudentName()<<"\n";
             cout<<"Student Roll No: "<<traversePointer->getStrudentTollNo()<<"\n";
             traversePointer = traversePointer->getNext();
-        }while(traversePointer != nullptr);
+        }while(traversePointer != this->head);
     }
     
 }
