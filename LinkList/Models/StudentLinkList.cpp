@@ -138,20 +138,12 @@ void StudentLinkList::removeLastStudent() {
         return;
     }
     
-    StudentData *traversePointer = this->head;
+    StudentData *traversePointer = this->head->getBack();
     
-    do {
-        if (this->size == 1) {
-            this->head = traversePointer->getNext();
-            delete traversePointer;
-            this->size--;
-            return;
-        }
-        traversePointer = traversePointer->getNext();
-    }while(traversePointer->getNext() != nullptr);
-    
-    traversePointer->getBack()->setNext(nullptr);
+    this->head->getBack()->getBack()->setNext(this->head);
+    this->head->setBack(this->head->getBack()->getBack());
     delete traversePointer;
+    traversePointer = nullptr;
     this->size--;
 }
 
