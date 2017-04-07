@@ -80,14 +80,16 @@ void StudentLinkList::removeStudent(StudentData *studentData) {
     do {
         if (!traversePointer->getStudentName().compare(studentData->getStudentName())
             && !traversePointer->getStrudentTollNo().compare(studentData->getStrudentTollNo())) {
+            
+            if (traversePointer->getNext() != nullptr) {
+                traversePointer->getBack()->setNext(traversePointer->getNext());
+                traversePointer->getNext()->setBack(traversePointer->getBack());
+            }
+            
             if (count == 0) {
                 this->head = traversePointer->getNext();
-                delete traversePointer;
-                this->size--;
-                return;
             }
-            traversePointer->getBack()->setNext(traversePointer->getNext());
-            traversePointer->getNext()->setBack(traversePointer->getBack());
+            
             delete traversePointer;
             this->size--;
             return;
