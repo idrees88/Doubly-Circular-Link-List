@@ -22,12 +22,14 @@ void StudentLinkList::addStudent(StudentData *studentData) {
     }
     
     StudentData *traversePointer = this->head;
-    while (traversePointer->getNext() != nullptr) {
+    while (traversePointer->getNext() != this->head) {
         traversePointer = traversePointer->getNext();
     }
     
     traversePointer->setNext(studentData);
     studentData->setBack(traversePointer);
+    studentData->setNext(this->head);
+    this->head->setBack(studentData);
     this->size++;
 }
 
