@@ -42,11 +42,15 @@ void StudentLinkList::addStudent(StudentData *studentData, int position) {
     StudentData *traversePointer = this->head;
     int currentPosition = 0;
     
-    while (traversePointer != nullptr) {
+    do {
         if (currentPosition == position) {
             if (position == 0) {
-                studentData->setNext(traversePointer);
-                traversePointer->setBack(studentData);
+                if (traversePointer != nullptr) {
+                    studentData->setNext(traversePointer);
+                    traversePointer->setBack(studentData);
+                    traversePointer->setNext(studentData);
+                    studentData->setBack(traversePointer);
+                }
                 this->head = studentData;
             }
             else {
@@ -59,9 +63,11 @@ void StudentLinkList::addStudent(StudentData *studentData, int position) {
             this->size++;
             return;
         }
+        
         traversePointer = traversePointer->getNext();
         currentPosition++;
-    }
+    } while (traversePointer != this->head);
+    
 }
 
 void StudentLinkList::removeStudent(StudentData *studentData) {
